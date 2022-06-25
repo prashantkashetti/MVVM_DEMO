@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_associated_drugs">
+
+    <fragment
+        android:id="@+id/nav_associated_drugs"
+        android:name="com.example.mvvmdemo.ui.home.AssociatedDrugsFragment"
+        android:label="@string/menu_associated_drugs"
+        tools:layout="@layout/fragment_associated_drugs">
+        <action
+            android:id="@+id/action_nav_home_to_associatedDrugDetailsFragment"
+            app:destination="@id/associatedDrugDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.mvvmdemo.ui.gallery.GalleryFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/associatedDrugDetailsFragment"
+        android:name="com.example.mvvmdemo.ui.home.AssociatedDrugDetailsFragment"
+        tools:layout="@layout/fragment_asscociated_drug_details">
+        <argument
+            android:name="associatedDrug"
+            app:argType="com.example.mvvmdemo.models.AssociatedDrug" />
+    </fragment>
+</navigation>
