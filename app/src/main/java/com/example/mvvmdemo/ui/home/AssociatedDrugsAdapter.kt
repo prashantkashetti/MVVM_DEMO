@@ -2,11 +2,11 @@ package com.example.mvvmdemo.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mvvmdemo.databinding.AssociatedDrugsListRowBinding
 import com.example.mvvmdemo.models.AssociatedDrug
-import com.example.mvvmdemo.models.AssociatedDrugDiffUtils
 
 class AssociatedDrugsAdapter(private val onAssociatedDrugClicked: (AssociatedDrug) -> Unit) :
     ListAdapter<AssociatedDrug, AssociatedDrugsViewHolder>(AssociatedDrugDiffUtils()) {
@@ -33,5 +33,15 @@ class AssociatedDrugsViewHolder(private val binding: AssociatedDrugsListRowBindi
                 }
             }
         }
+    }
+}
+
+class AssociatedDrugDiffUtils: DiffUtil.ItemCallback<AssociatedDrug>(){
+    override fun areItemsTheSame(oldItem: AssociatedDrug, newItem: AssociatedDrug): Boolean {
+        return oldItem == newItem
+    }
+
+    override fun areContentsTheSame(oldItem: AssociatedDrug, newItem: AssociatedDrug): Boolean {
+        return oldItem == newItem
     }
 }
